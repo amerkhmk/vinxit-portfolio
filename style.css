@@ -812,20 +812,31 @@ header.scrolled {
 }
 
 /* --- Animations & Utilities --- */
-.reveal {
+.reveal, .reveal-left, .reveal-right {
     opacity: 0;
-    transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+.reveal {
+    transform: translateY(30px);
 }
 
-.reveal-delay { transition-delay: 0.2s; }
-.reveal-delay-1 { transition-delay: 0.2s; }
-.reveal-delay-2 { transition-delay: 0.4s; }
+.reveal-left {
+    transform: translateX(-50px);
+}
+
+.reveal-right {
+    transform: translateX(50px);
+}
+
+.reveal.active, .reveal-left.active, .reveal-right.active {
+    opacity: 1;
+    transform: translate(0);
+}
+
+.reveal-delay { transition-delay: 0.1s; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
 
 
 /* --- Responsive Design --- */

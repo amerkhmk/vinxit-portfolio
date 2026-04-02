@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* --- Intersection Observer for Sections below the Hero --- */
-    const revealElements = document.querySelectorAll('.reveal');
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     const revealOptions = {
         threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             } else {
                 entry.target.classList.add('active');
-                if (entry.target.classList.contains('skills-content')) {
-                    const progressBars = document.querySelectorAll('.progress-bar');
+                if (entry.target.classList.contains('skills-content') || entry.target.querySelector('.progress-bar')) {
+                    const progressBars = entry.target.querySelectorAll('.progress-bar');
                     progressBars.forEach(bar => {
                         const width = bar.getAttribute('data-width');
                         bar.style.width = width;
